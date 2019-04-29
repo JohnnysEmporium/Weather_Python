@@ -154,7 +154,7 @@ class Ui_MainWindow(object):
     def set_background(self):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        oImage = QImage("background.png")
+        oImage = QImage("icons\\background.png")
         sImage = oImage.scaled(QSize(749,733))                   
         palette = QPalette()
         palette.setBrush(10, QBrush(oImage))                     
