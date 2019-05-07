@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'window_final.ui'
+# Form implementation generated from reading ui file 'weather.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -18,11 +18,10 @@ import json
 import time
 import threading
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(749, 733)
+        MainWindow.resize(883, 884)
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -35,7 +34,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.hForecastSA2 = QtWidgets.QWidget()
-        self.hForecastSA2.setGeometry(QtCore.QRect(0, 0, 727, 276))
+        self.hForecastSA2.setGeometry(QtCore.QRect(0, 0, 861, 191))
         self.hForecastSA2.setObjectName("hForecastSA2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.hForecastSA2)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -50,7 +49,7 @@ class Ui_MainWindow(object):
         self.scrollArea_1.setWidgetResizable(True)
         self.scrollArea_1.setObjectName("scrollArea_1")
         self.hForecastSA1 = QtWidgets.QWidget()
-        self.hForecastSA1.setGeometry(QtCore.QRect(0, 0, 727, 277))
+        self.hForecastSA1.setGeometry(QtCore.QRect(0, 0, 861, 191))
         self.hForecastSA1.setObjectName("hForecastSA1")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.hForecastSA1)
         self.gridLayout_4.setObjectName("gridLayout_4")
@@ -59,71 +58,80 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addLayout(self.scrollArea_1_layout, 0, 0, 1, 1)
         self.scrollArea_1.setWidget(self.hForecastSA1)
         self.gridFor2.addWidget(self.scrollArea_1, 0, 0, 1, 1)
-        self.gridLayout.addLayout(self.gridFor2, 3, 0, 1, 1)
+        self.gridLayout.addLayout(self.gridFor2, 2, 0, 1, 1)
         self.gridLayout_3 = QtWidgets.QGridLayout()
         self.gridLayout_3.setObjectName("gridLayout_3")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem, 0, 2, 4, 1)
-        self.humidityimg = QtWidgets.QLabel(self.centralwidget)
-        self.humidityimg.setAlignment(QtCore.Qt.AlignCenter)
-        self.humidityimg.setObjectName("humidityimg")
-        self.gridLayout_3.addWidget(self.humidityimg, 2, 0, 1, 1)
-        self.cloudimg = QtWidgets.QLabel(self.centralwidget)
-        self.cloudimg.setAlignment(QtCore.Qt.AlignCenter)
-        self.cloudimg.setObjectName("cloudimg")
-        self.gridLayout_3.addWidget(self.cloudimg, 1, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem1, 0, 4, 4, 1)
-        self.cloud = QtWidgets.QLabel(self.centralwidget)
-        self.cloud.setAlignment(QtCore.Qt.AlignCenter)
-        self.cloud.setObjectName("cloud")
-        self.gridLayout_3.addWidget(self.cloud, 1, 3, 1, 1)
-        self.pressure = QtWidgets.QLabel(self.centralwidget)
-        self.pressure.setAlignment(QtCore.Qt.AlignCenter)
-        self.pressure.setObjectName("pressure")
-        self.gridLayout_3.addWidget(self.pressure, 3, 3, 1, 1)
-        self.humidity = QtWidgets.QLabel(self.centralwidget)
-        self.humidity.setAlignment(QtCore.Qt.AlignCenter)
-        self.humidity.setObjectName("humidity")
-        self.gridLayout_3.addWidget(self.humidity, 2, 3, 1, 1)
-        self.pressureimg = QtWidgets.QLabel(self.centralwidget)
-        self.pressureimg.setAlignment(QtCore.Qt.AlignCenter)
-        self.pressureimg.setObjectName("pressureimg")
-        self.gridLayout_3.addWidget(self.pressureimg, 3, 0, 1, 1)
+        self.gridLayout_8 = QtWidgets.QGridLayout()
+        self.gridLayout_8.setObjectName("gridLayout_8")
         self.temp = QtWidgets.QLabel(self.centralwidget)
         self.temp.setAlignment(QtCore.Qt.AlignCenter)
         self.temp.setObjectName("temp")
-        self.gridLayout_3.addWidget(self.temp, 0, 3, 1, 1)
+        self.gridLayout_8.addWidget(self.temp, 0, 1, 1, 1)
+        self.cloud = QtWidgets.QLabel(self.centralwidget)
+        self.cloud.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.cloud.setAutoFillBackground(False)
+        self.cloud.setAlignment(QtCore.Qt.AlignCenter)
+        self.cloud.setObjectName("cloud")
+        self.gridLayout_8.addWidget(self.cloud, 1, 1, 1, 1)
+        self.pressure = QtWidgets.QLabel(self.centralwidget)
+        self.pressure.setAlignment(QtCore.Qt.AlignCenter)
+        self.pressure.setObjectName("pressure")
+        self.gridLayout_8.addWidget(self.pressure, 3, 1, 1, 1)
+        self.humidity = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.humidity.sizePolicy().hasHeightForWidth())
+        self.humidity.setSizePolicy(sizePolicy)
+        self.humidity.setAlignment(QtCore.Qt.AlignCenter)
+        self.humidity.setObjectName("humidity")
+        self.gridLayout_8.addWidget(self.humidity, 2, 1, 1, 1)
+        self.humidityimg = QtWidgets.QLabel(self.centralwidget)
+        self.humidityimg.setAlignment(QtCore.Qt.AlignCenter)
+        self.humidityimg.setObjectName("humidityimg")
+        self.gridLayout_8.addWidget(self.humidityimg, 2, 0, 1, 1)
+        self.pressureimg = QtWidgets.QLabel(self.centralwidget)
+        self.pressureimg.setAlignment(QtCore.Qt.AlignCenter)
+        self.pressureimg.setObjectName("pressureimg")
+        self.gridLayout_8.addWidget(self.pressureimg, 3, 0, 1, 1)
+        self.cloudimg = QtWidgets.QLabel(self.centralwidget)
+        self.cloudimg.setAlignment(QtCore.Qt.AlignCenter)
+        self.cloudimg.setObjectName("cloudimg")
+        self.gridLayout_8.addWidget(self.cloudimg, 1, 0, 1, 1)
         self.tempimg = QtWidgets.QLabel(self.centralwidget)
         self.tempimg.setAlignment(QtCore.Qt.AlignCenter)
         self.tempimg.setObjectName("tempimg")
-        self.gridLayout_3.addWidget(self.tempimg, 0, 0, 1, 1)
-        self.windimg = QtWidgets.QLabel(self.centralwidget)
-        self.windimg.setAlignment(QtCore.Qt.AlignCenter)
-        self.windimg.setObjectName("windimg")
-        self.gridLayout_3.addWidget(self.windimg, 0, 5, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem2, 0, 6, 4, 1)
-        self.winddirimg = QtWidgets.QLabel(self.centralwidget)
-        self.winddirimg.setAlignment(QtCore.Qt.AlignCenter)
-        self.winddirimg.setObjectName("winddirimg")
-        self.gridLayout_3.addWidget(self.winddirimg, 1, 5, 1, 1)
+        self.gridLayout_8.addWidget(self.tempimg, 0, 0, 1, 1)
+        self.gridLayout_3.addLayout(self.gridLayout_8, 0, 0, 1, 1)
+        self.gridLayout_7 = QtWidgets.QGridLayout()
+        self.gridLayout_7.setObjectName("gridLayout_7")
         self.rainimg = QtWidgets.QLabel(self.centralwidget)
         self.rainimg.setAlignment(QtCore.Qt.AlignCenter)
         self.rainimg.setObjectName("rainimg")
-        self.gridLayout_3.addWidget(self.rainimg, 2, 5, 1, 1)
-        self.wind = QtWidgets.QLabel(self.centralwidget)
-        self.wind.setAlignment(QtCore.Qt.AlignCenter)
-        self.wind.setObjectName("wind")
-        self.gridLayout_3.addWidget(self.wind, 0, 7, 1, 1)
+        self.gridLayout_7.addWidget(self.rainimg, 2, 0, 1, 1)
         self.winddir = QtWidgets.QLabel(self.centralwidget)
         self.winddir.setAlignment(QtCore.Qt.AlignCenter)
         self.winddir.setObjectName("winddir")
-        self.gridLayout_3.addWidget(self.winddir, 1, 7, 1, 1)
+        self.gridLayout_7.addWidget(self.winddir, 1, 1, 1, 1)
+        self.wind = QtWidgets.QLabel(self.centralwidget)
+        self.wind.setAlignment(QtCore.Qt.AlignCenter)
+        self.wind.setObjectName("wind")
+        self.gridLayout_7.addWidget(self.wind, 0, 1, 1, 1)
+        self.windimg = QtWidgets.QLabel(self.centralwidget)
+        self.windimg.setAlignment(QtCore.Qt.AlignCenter)
+        self.windimg.setObjectName("windimg")
+        self.gridLayout_7.addWidget(self.windimg, 0, 0, 1, 1)
+        self.winddirimg = QtWidgets.QLabel(self.centralwidget)
+        self.winddirimg.setAlignment(QtCore.Qt.AlignCenter)
+        self.winddirimg.setObjectName("winddirimg")
+        self.gridLayout_7.addWidget(self.winddirimg, 1, 0, 1, 1)
         self.rain = QtWidgets.QLabel(self.centralwidget)
         self.rain.setAlignment(QtCore.Qt.AlignCenter)
         self.rain.setObjectName("rain")
-        self.gridLayout_3.addWidget(self.rain, 2, 7, 1, 1)
+        self.gridLayout_7.addWidget(self.rain, 2, 1, 1, 1)
+        self.gridLayout_3.addLayout(self.gridLayout_7, 0, 2, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
+        self.gridLayout_3.addItem(spacerItem2, 0, 1, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_3, 1, 0, 1, 1)
         self.search_grid = QtWidgets.QGridLayout()
         self.search_grid.setObjectName("search_grid")
@@ -136,7 +144,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addLayout(self.search_grid, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 749, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 883, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -145,30 +153,29 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.humidityimg.setText(_translate("MainWindow", "humidityimg"))
-        self.cloudimg.setText(_translate("MainWindow", "cloudimg"))
+        self.temp.setText(_translate("MainWindow", "temp"))
         self.cloud.setText(_translate("MainWindow", "cloud"))
         self.pressure.setText(_translate("MainWindow", "pressure"))
         self.humidity.setText(_translate("MainWindow", "humidity"))
+        self.humidityimg.setText(_translate("MainWindow", "humidityimg"))
         self.pressureimg.setText(_translate("MainWindow", "pressureimg"))
-        self.temp.setText(_translate("MainWindow", "temp"))
+        self.cloudimg.setText(_translate("MainWindow", "cloudimg"))
         self.tempimg.setText(_translate("MainWindow", "tempimg"))
-        self.windimg.setText(_translate("MainWindow", "windimg"))
-        self.winddirimg.setText(_translate("MainWindow", "windirimg"))
         self.rainimg.setText(_translate("MainWindow", "rainimg"))
-        self.wind.setText(_translate("MainWindow", "wind"))
         self.winddir.setText(_translate("MainWindow", "winddir"))
+        self.wind.setText(_translate("MainWindow", "wind"))
+        self.windimg.setText(_translate("MainWindow", "windimg"))
+        self.winddirimg.setText(_translate("MainWindow", "winddirimg"))
         self.rain.setText(_translate("MainWindow", "rain"))
-        self.pushButton.setText(_translate("MainWindow", "Get Forecast"))
-
-    def set_misc(self):
+        self.pushButton.setText(_translate("MainWindow", "PushButton"))
         
+    def set_misc(self):
         self.retranslateUi(MainWindow)
-        self.pushButton.clicked.connect(self.refresh)
+        self.pushButton.clicked.connect(self.new_forecast)
         self.pushButton.setShortcut("Return")
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         oImage = QImage("icons\\background.png")
@@ -254,9 +261,9 @@ class Ui_MainWindow(object):
             city = self.cities[self.lineEdit.text()]
             lon = str(city[0])
             lat = str(city[1])
-            self.response = requests.get('https://api.darksky.net/forecast/YOUR API KEY/' + lon + ',' + lat + '?units=si')
+            self.response = requests.get('https://api.darksky.net/forecast/051de7d98fd7cc6a18796c4e96f2058e/' + lon + ',' + lat + '?units=si')
         except:
-            self.response = requests.get('https://api.darksky.net/forecast/YOUR API KEY/50.0646,19.9450?units=si')
+            self.response = requests.get('https://api.darksky.net/forecast/051de7d98fd7cc6a18796c4e96f2058e/50.0646,19.9450?units=si')
             
     def change_font(self):
         lab = MainWindow.findChildren(QtWidgets.QLabel)
@@ -382,9 +389,9 @@ class Ui_MainWindow(object):
             
             self.setimg(self.hForecastLabels[i][1], self.cloud_icon_handler(self.hclouds, i))
             
-            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][0], 0, i)
-            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][1], 1, i)
-            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][2], 2, i)
+            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][0], 0, i + 1)
+            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][1], 1, i + 1)
+            self.scrollArea_1_layout.addWidget(self.hForecastLabels[i][2], 2, i + 1)
             
             for j in range(3):
                 self.hForecastLabels[i][j].setAlignment(QtCore.Qt.AlignCenter)
@@ -456,7 +463,7 @@ class Ui_MainWindow(object):
             for j in range(len(h[i])):
                 h[i][j].hide()
         
-    def refresh(self):
+    def new_forecast(self):
 #         while True:
             self.get_data()
             self.value_handler(0)
@@ -468,7 +475,16 @@ class Ui_MainWindow(object):
             self.hForecast()
             self.dForecast()
 #             time.sleep(10)
-        
+
+    def refresh(self):
+        self.value_handler(0)
+        try:
+            self.rm_widgets()
+        except:
+            pass
+        self.icon_handler(0)
+        self.hForecast()
+        self.dForecast()
         
 if __name__ == "__main__":
     import sys
@@ -481,6 +497,7 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+    thread0.join()
     ui.set_misc()
     ui.refresh()
     ui.change_font()
@@ -488,4 +505,3 @@ if __name__ == "__main__":
     thread2 = threading.Thread(target = ui.autocomplete())
     thread2.start()
     sys.exit(app.exec_())
-
