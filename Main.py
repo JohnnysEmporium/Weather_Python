@@ -417,17 +417,17 @@ class Ui_MainWindow(object):
             t = time.localtime(self.dtime[i]).tm_wday
             if t == 0:
                 var.append('Monday')
-            if t == 0:
+            if t == 1:
                 var.append('Tuesday')
-            if t == 0:
+            if t == 2:
                 var.append('Wednesday')
-            if t == 0:
+            if t == 3:
                 var.append('Thursday')
-            if t == 0:
+            if t == 4:
                 var.append('Friday')
-            if t == 0:
+            if t == 5:
                 var.append('Saturday')
-            if t == 0:
+            if t == 6:
                 var.append('Sunday')
         return var
             
