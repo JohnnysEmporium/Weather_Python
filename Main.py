@@ -322,7 +322,7 @@ class Ui_MainWindow(object):
         self.winddirs = []
         self.rainchances = []
         self.rainintensitys = []
-        self.get_data()
+#         self.get_data()
         self.vals = self.response.json()
         self.curvals = self.vals['currently']
         self.hvals = self.vals['hourly']['data'][0]
@@ -458,6 +458,7 @@ class Ui_MainWindow(object):
         
     def refresh(self):
 #         while True:
+            self.get_data()
             self.value_handler(0)
             try:
                 self.rm_widgets()
@@ -471,18 +472,20 @@ class Ui_MainWindow(object):
         
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    thread0 = threading.Thread(target = ui.get_data)
+    thread0.start()
     thread1 = threading.Thread(target = ui.get_cities)
     thread1.start()
-    thread1.join()
-    thread2 = threading.Thread(target = ui.autocomplete())
-    thread2.start()
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     ui.set_misc()
     ui.refresh()
     ui.change_font()
+    thread1.join()
+    thread2 = threading.Thread(target = ui.autocomplete())
+    thread2.start()
     sys.exit(app.exec_())
 
